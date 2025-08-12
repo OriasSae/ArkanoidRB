@@ -7,7 +7,7 @@ public class YlwBall : Ball
 
     protected override void OnBrickCollision(BricksScript p_Brick)
     {
-        p_Brick.Break();
+        p_Brick.Hit();
 
         if (Random.value < 0.25f && m_BallPrefab != null)
         {

@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HitSound: {fileID: 0}
-  m_EffectPrefab: {fileID: 0}
-  m_BallPrefab: {fileID: 0}
+  m_EffectPrefab: {fileID: 9018719829273348076}
+  m_BallPrefab: {fileID: 9018719829273348076}

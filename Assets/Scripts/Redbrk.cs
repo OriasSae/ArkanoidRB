@@ -7,7 +7,7 @@ public class Redbrk : BricksScript
         BRKHP = 2;
     }
 
-    public override void Break()
+    protected override void InternalBreak()
     {
         BRKHP--;
         SoundManagerScript.PlaySound(m_Hitsound, transform.position);
@@ -31,7 +31,15 @@ public class Redbrk : BricksScript
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Break();
+            InternalBreak();
+        }
+    }
+
+    protected override void InternalSpawnPowerUp()
+    {
+        if (Random.value < 0.5 && m_PowerUpPrefab != null)
+        {
+            Instantiate(m_PowerUpPrefab, transform.position, Quaternion.identity);
         }
     }
 }

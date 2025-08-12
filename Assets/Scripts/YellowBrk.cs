@@ -9,7 +9,7 @@ public class YellowBrk : BricksScript
         BRKHP = 3;
     }
 
-    public override void Break()
+    protected override void InternalBreak()
     {
         BRKHP--;
         SoundManagerScript.PlaySound(m_Hitsound, transform.position);
@@ -39,7 +39,12 @@ public class YellowBrk : BricksScript
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Break();
+            InternalBreak();
         }
+    }
+
+    protected override void InternalSpawnPowerUp()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -4,7 +4,7 @@ public class GrnBall : Ball
 {
     protected override void OnBrickCollision(BricksScript p_Brick)
     {
-        p_Brick.Break();
+        p_Brick.Hit();
     }
     protected override void OnDeathZoneCollision()
 {

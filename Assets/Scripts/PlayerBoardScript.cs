@@ -49,4 +49,11 @@ private void Start()
         transform.position = startPos;
         rb2D.linearVelocity = Vector2.zero;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out PowerUp PU))
+        {
+            PU.Collide();
+        }
+    }
 }

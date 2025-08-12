@@ -38,7 +38,7 @@ public class GameManagerScript : MonoBehaviour
         Victory();
     }
 
-    private static IEnumerator ShakeCamera(Camera camera, float duration, float magnitude)
+    public static IEnumerator ShakeCamera(Camera camera, float duration, float magnitude)
     {
         Vector3 originalPosition = camera.transform.localPosition;
 
