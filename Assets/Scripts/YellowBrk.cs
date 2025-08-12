@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class YellowBrk : BricksScript
 {
+    [SerializeField] private GameObject yellowBallPrefab; // Assign in inspector
+
     void Start()
     {
         BRKHP = 3;
@@ -15,7 +17,11 @@ public class YellowBrk : BricksScript
         {
             var gm = FindAnyObjectByType<GameManagerScript>();
             gm.WINBRKCOUNT -= 1;
-            gm.HP += 1;
+            var spawner = FindAnyObjectByType<BallSpwn>();
+            if (spawner != null && yellowBallPrefab != null)
+            {
+                spawner.SpawnSpecificBall(yellowBallPrefab);
+            }
             Destroy(gameObject);
         }
         else

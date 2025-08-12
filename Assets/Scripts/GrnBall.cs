@@ -7,9 +7,9 @@ public class GrnBall : Ball
         p_Brick.Break();
     }
     protected override void OnDeathZoneCollision()
-    {
-        Destroy(gameObject);
-    }
+{
+    base.OnDeathZoneCollision();
+}
 
 
     protected override void OnPlayerBoardCollision(PlayerBoardScript p_PlayerBoard)

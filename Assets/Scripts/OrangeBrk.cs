@@ -1,7 +1,16 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class OrangeBrk : BricksScript
 {
+    SpriteRenderer m_SpriteRenderer;
+    Color m_OriginalColor;
+
+    private void Awake()
+    {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_OriginalColor = m_SpriteRenderer.color;
+    }
     void Start()
     {
         BRKHP = 1;

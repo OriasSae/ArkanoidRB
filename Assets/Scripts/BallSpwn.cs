@@ -10,6 +10,20 @@ public class BallSpwn : MonoBehaviour
     private GameObject currentBall;
     private bool ballReady = false;
 
+
+public void SpawnSpecificBall(GameObject ballPrefabToSpawn)
+{
+    if (ballReady) return;
+
+    Vector3 spawnPos = playerBoard.position + Vector3.up * spawnOffsetY;
+    GameObject newBall = Instantiate(ballPrefabToSpawn, spawnPos, Quaternion.identity);
+    if (newBall.TryGetComponent<Rigidbody2D>(out var rb))
+    {
+        rb.bodyType = RigidbodyType2D.Kinematic;
+    }
+    currentBall = newBall;
+    ballReady = true;
+}
     void Start()
     {
         SpawnBall();
@@ -19,7 +33,7 @@ public class BallSpwn : MonoBehaviour
     {
         if (ballReady)
         {
-            
+
             Vector3 followPos = playerBoard.position + Vector3.up * spawnOffsetY;
             currentBall.transform.position = followPos;
 
@@ -28,6 +42,7 @@ public class BallSpwn : MonoBehaviour
                 LaunchBall();
             }
         }
+    
     }
 
     void SpawnBall()
